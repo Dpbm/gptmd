@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "GPTMD",
+  "version": "1",
+  "description": "Export your chatgpt conversation to markdown",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/"
+      ]
+    }
+  ],
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "GPTMD",
+    "default_popup": "index.html"
+  },
+
+  "permissions": [
+    "https://chat.openai.com/",
+    "unlimitedStorage",
+    "storage"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/"],
+      "js": ["getData.js"]
+    }
+  ]
+}
