@@ -29,9 +29,18 @@ function getAnswerTag(){
   return pre;
 }
 
-function addToLocalStorage(title, text){
-  browser.storage.local.set({title, text})
-    .then(() => {}, logError);
+function createMdFile(title, text){
+  let mdData = `# ${title}\n`;
+
+  for(let i = 0; i < text.length; i++)
+    mdData += i % 2 == 0 ?
+                `## ${text[i]}\n` :
+                '```' + text[i] + '```\n';
+  
+  const mdBlob = new Blob([mdData], { type: 'text/plain' });
+  const downloadElement = document.getElementById('export-file');
+  downloadElement.href = URL.createObjectURL(mdBlob);
+  downloadElement.download = `${title}.md`;
 }
 
 function appendData(title, text){
@@ -41,13 +50,21 @@ function appendData(title, text){
     return;
   }
 
-  addToLocalStorage(title, text);
 
   const h1 = document.createElement('h1');
   h1.className = 'conversationTitle';
   h1.innerText = title;
-  dataArea.appendChild(h1);
+  
+  const downloadButton = document.createElement('a');
+  downloadButton.innerText = 'download';
+  downloadButton.id = 'export-file';
+  downloadButton.className = 'exportMdFile';
 
+  dataArea.appendChild(h1);
+  dataArea.appendChild(downloadButton);
+
+  createMdFile(title, text);
+  
   for(let i = 0; i < text.length; i++){
     let element = i % 2 == 0 ? 
         getQuestionTag(): 

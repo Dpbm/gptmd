@@ -50,3 +50,8 @@ h1{
   background-color: #444654;
 }
 
+.exportMdFile{
+  color: #DDE6ED;
+  font-size: 16px;
+  text-decoration: none;
+}

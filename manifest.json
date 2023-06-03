@@ -17,9 +17,7 @@
   },
 
   "permissions": [
-    "https://chat.openai.com/",
-    "unlimitedStorage",
-    "storage"
+    "https://chat.openai.com/"
   ],
 
   "content_scripts": [
