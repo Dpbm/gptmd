@@ -35,7 +35,7 @@ function createMdFile(title, text){
   for(let i = 0; i < text.length; i++)
     mdData += i % 2 == 0 ?
                 `## ${text[i]}\n` :
-                '```' + text[i] + '```\n';
+                '```\n' + text[i] + '\n```\n\n';
   
   const mdBlob = new Blob([mdData], { type: 'text/plain' });
   const downloadElement = document.getElementById('export-file');
