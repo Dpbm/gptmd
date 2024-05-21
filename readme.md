@@ -6,7 +6,7 @@ Export your chatgpt conversation to markdown.
 
 ## How to use
 
-1. Chat at chat.openai.com
+1. Chat at chatgpt.com
 2. click in the extension icon
 3. click in download
 
