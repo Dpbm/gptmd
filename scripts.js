@@ -7,11 +7,11 @@ function logError(error){
 function noData(){
   const noDataText = document.createElement('h1');
   noDataText.className = 'noDataTitle'
-  noDataText.innerText = 'No Data!';
+  noDataText.innerText = 'No Data was found!';
 
   const noDataSubtitle = document.createElement('h2');
   noDataSubtitle.className = 'noDataSubtitle';
-  noDataSubtitle.innerText = 'Try reopen the extension!';
+  noDataSubtitle.innerText = 'Try asking questions and then reopen the extension!';
   
   dataArea.appendChild(noDataText);
   dataArea.appendChild(noDataSubtitle);
@@ -40,7 +40,7 @@ function createMdFile(title, text){
   const mdBlob = new Blob([mdData], { type: 'text/plain' });
   const downloadElement = document.getElementById('export-file');
   downloadElement.href = URL.createObjectURL(mdBlob);
-  downloadElement.download = `${title}.md`;
+  downloadElement.download = `${title}-${new Date().toString()}.md`;
 }
 
 function appendData(title, text){

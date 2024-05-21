@@ -6,7 +6,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://chat.openai.com/"
+        "https://chat.openai.com/",
+        "https://chatgpt.com/"
       ]
     }
   ],
@@ -23,12 +24,13 @@
   },
   
   "permissions": [
-    "https://chat.openai.com/"
+    "https://chat.openai.com/",
+    "https://chatgpt.com/"
   ],
 
   "content_scripts": [
     {
-      "matches": ["https://chat.openai.com/"],
+      "matches": ["https://chat.openai.com/", "https://chatgpt.com/"],
       "js": ["getData.js"]
     }
   ]
